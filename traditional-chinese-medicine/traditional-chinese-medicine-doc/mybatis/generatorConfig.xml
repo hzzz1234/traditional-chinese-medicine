@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+<generatorConfiguration >
+   <classPathEntry location="E:\Users\.m2\repository\mysql\mysql-connector-java\5.1.35\mysql-connector-java-5.1.35.jar" />    
+  
+  <context id="DB2Tables" targetRuntime="MyBatis3">
+    <commentGenerator>
+      <property name="suppressDate" value="true"/>
+      <!-- 是否去除自动生成的注释 true：是 ： false:否 -->
+      <property name="suppressAllComments" value="true"/>
+    </commentGenerator>
+    <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://192.168.11.133/hospital" userId="hzzz" password="huazhen" />
+    <javaModelGenerator targetPackage="com.hzzz.tcm.domain.model" targetProject="traditional-chinese-medicine-domain" />
+    <sqlMapGenerator targetPackage="com.hzzz.tcm.persistence.mapping" targetProject="traditional-chinese-medicine-domain" />
+    <javaClientGenerator targetPackage="com.hzzz.tcm.persistence.dao" targetProject="traditional-chinese-medicine-domain" type="XMLMAPPER" />
+    <table tableName="dbxzpatient" domainObjectName="Dbxzpatient">
+    </table>
+    <table tableName="dbxzpatjpre" domainObjectName="Dbxzpatjpre">
+    </table>
+    <table tableName="dbxzprescription" domainObjectName="Dbxzprescription">
+    </table>
+    <table tableName="dbxzsystemuser" domainObjectName="Dbxzsystemuser">
+    </table>
+    <table tableName="dbxztreatrecord" domainObjectName="Dbxztreatrecord">
+    </table>
+  </context>
+</generatorConfiguration>
