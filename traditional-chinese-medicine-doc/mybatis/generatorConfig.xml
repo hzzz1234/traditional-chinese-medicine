@@ -9,19 +9,21 @@
       <!-- 是否去除自动生成的注释 true：是 ： false:否 -->
       <property name="suppressAllComments" value="true"/>
     </commentGenerator>
-    <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://192.168.11.133/hospital" userId="hzzz" password="huazhen" />
+    <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://101.200.81.55/hospital" userId="root" password="123456" />
     <javaModelGenerator targetPackage="com.hzzz.tcm.domain.model" targetProject="traditional-chinese-medicine-domain" />
     <sqlMapGenerator targetPackage="com.hzzz.tcm.persistence.mapping" targetProject="traditional-chinese-medicine-domain" />
     <javaClientGenerator targetPackage="com.hzzz.tcm.persistence.dao" targetProject="traditional-chinese-medicine-domain" type="XMLMAPPER" />
-    <table tableName="dbxzpatient" domainObjectName="Dbxzpatient">
-    </table>
-    <table tableName="dbxzpatjpre" domainObjectName="Dbxzpatjpre">
-    </table>
-    <table tableName="dbxzprescription" domainObjectName="Dbxzprescription">
-    </table>
-    <table tableName="dbxzsystemuser" domainObjectName="Dbxzsystemuser">
-    </table>
-    <table tableName="dbxztreatrecord" domainObjectName="Dbxztreatrecord">
+    <!--<table tableName="dbxzpatient" domainObjectName="Dbxzpatient">-->
+    <!--</table>-->
+    <!--<table tableName="dbxzpatjpre" domainObjectName="Dbxzpatjpre">-->
+    <!--</table>-->
+    <!--<table tableName="dbxzprescription" domainObjectName="Dbxzprescription">-->
+    <!--</table>-->
+    <!--<table tableName="dbxzsystemuser" domainObjectName="Dbxzsystemuser">-->
+    <!--</table>-->
+    <!--<table tableName="dbxztreatrecord" domainObjectName="Dbxztreatrecord">-->
+    <!--</table>-->
+    <table tableName="seq" domainObjectName="seq">
     </table>
   </context>
 </generatorConfiguration>

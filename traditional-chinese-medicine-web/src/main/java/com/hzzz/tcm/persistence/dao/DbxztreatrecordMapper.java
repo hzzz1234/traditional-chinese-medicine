@@ -35,10 +35,10 @@ public interface DbxztreatrecordMapper {
 
 	int updateByPrimaryKey(Dbxztreatrecord record);
 
-	@Select("select a.id recordid,b.id patientid,b.name patientname,b.sex patientsex,(select count(1) from dbxztreatrecord c where deleted=0 and c.status=2 and c.patientid=a.patientid) recordcount from  dbxztreatrecord a join dbxzpatient  b on a.patientid=b.id where status=0 and b.deleted=0 order by 	a.DataChange_LastTime")
+	@Select("select a.id recordid,b.id patientid,b.name patientname,b.sex patientsex,(select count(1) from dbxztreatrecord c where deleted=0 and c.status=2 and c.patientid=a.patientid) recordcount,a.seq from  dbxztreatrecord a join dbxzpatient  b on a.patientid=b.id where status=0 and b.deleted=0 order by 	a.DataChange_LastTime")
 	List<DbxzRecord> selectArrangeRecords();
 
-	@Select("select a.id recordid,b.id patientid,b.name patientname,b.sex patientsex,(select count(1) from dbxztreatrecord c where deleted=0 and c.status=2 and c.patientid=a.patientid) recordcount from  dbxztreatrecord a join dbxzpatient  b on a.patientid=b.id where status=1 and b.deleted=0 order by 	a.DataChange_LastTime")
+	@Select("select a.id recordid,b.id patientid,b.name patientname,b.sex patientsex,(select count(1) from dbxztreatrecord c where deleted=0 and c.status=2 and c.patientid=a.patientid) recordcount,a.seq from  dbxztreatrecord a join dbxzpatient  b on a.patientid=b.id where status=1 and b.deleted=0 order by 	a.DataChange_LastTime")
 	List<DbxzRecord> selectRescueRecords();
 
 	@Update("update dbxztreatrecord set status=1 where id=#{recordid}")

@@ -3,6 +3,7 @@ package com.hzzz.tcm.domain.model;
 import java.util.Date;
 
 public class Dbxzpatient {
+
     private Integer id;
 
     private String name;
@@ -18,6 +19,8 @@ public class Dbxzpatient {
     private Byte deleted;
 
     private Date datachangeLasttime;
+
+    private Integer duration;
 
     public Integer getId() {
         return id;
@@ -81,5 +84,13 @@ public class Dbxzpatient {
 
     public void setDatachangeLasttime(Date datachangeLasttime) {
         this.datachangeLasttime = datachangeLasttime;
+    }
+
+    public Integer getDuration() {
+        return duration;
+    }
+
+    public void setDuration(Integer duration) {
+        this.duration = duration;
     }
 }

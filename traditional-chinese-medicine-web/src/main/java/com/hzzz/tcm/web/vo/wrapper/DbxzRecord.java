@@ -6,6 +6,15 @@ public class DbxzRecord {
 	String patientname;
 	int patientsex;
 	int recordcount;
+	int seq;
+
+	public int getSeq() {
+		return seq;
+	}
+
+	public void setSeq(int seq) {
+		this.seq = seq;
+	}
 
 	public int getRecordcount() {
 		return recordcount;

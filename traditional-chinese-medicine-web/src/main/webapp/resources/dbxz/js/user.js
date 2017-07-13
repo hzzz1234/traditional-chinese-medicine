@@ -91,6 +91,7 @@ app.controller('userController', function($scope, $timeout, $http,$filter) {
 	$scope.newQueryReset =function(){
 	 		$scope.newPatient.id='';
 			$scope.newPatient.age='';
+        	$scope.newPatient.duration='';
 			$scope.newPatient.name='';
 			$scope.newPatient.symptom='';
 			$scope.newPatient.contact='';
@@ -125,6 +126,7 @@ app.controller('userController', function($scope, $timeout, $http,$filter) {
 			id : $scope.selectedPatient.dbxzpatient.id,
 			name:$scope.selectedPatient.dbxzpatient.name,
 			age:$scope.selectedPatient.dbxzpatient.age,
+            duration:$scope.selectedPatient.dbxzpatient.duration,
 			sex:$scope.selectedPatient.dbxzpatient.sex,
 			contact:$scope.selectedPatient.dbxzpatient.contact,
 			symptom:$scope.selectedPatient.dbxzpatient.symptom,
@@ -146,18 +148,22 @@ app.controller('userController', function($scope, $timeout, $http,$filter) {
 	};
 	$scope.addPatient=function(){
 		var prescriptionids ="";
-		for(var i=0;i<$scope.newPatient.selectedPrescriptions.length;i++){
-			if(i==0){
-				prescriptionids += $scope.newPatient.selectedPrescriptions[i].id;
-			}else{
-				prescriptionids += ","+$scope.newPatient.selectedPrescriptions[i].id;
+		if($scope.newPatient.selectedPrescriptions != undefined){
+			for(var i=0;i<$scope.newPatient.selectedPrescriptions.length;i++){
+				if(i==0){
+					prescriptionids += $scope.newPatient.selectedPrescriptions[i].id;
+				}else{
+					prescriptionids += ","+$scope.newPatient.selectedPrescriptions[i].id;
+				}
 			}
 		}
+
 		var data = {
 			id : $scope.newPatient.id,
 			name:$scope.newPatient.name,
 			age:$scope.newPatient.age,
 			sex:$scope.newPatient.sex,
+            duration:$scope.newPatient.duration,
 			contact:$scope.newPatient.contact,
 			symptom:$scope.newPatient.symptom,
 			prescriptionids:prescriptionids

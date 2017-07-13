@@ -82,6 +82,21 @@ public class DbxzMainController extends BaseController {
 		return o;
 	}
 
+	@RequestMapping("/home/reset")
+	@ResponseBody
+	public Object reset() {
+		int count = dbxzMainService.reset();
+		Map<String, Object> map = new HashMap<String, Object>();
+		if (count > 0) {
+			map.put("flag", "ok");
+		} else {
+			map.put("flag", "error");
+			map.put("result", "插入数据库失败");
+		}
+		Object o = JSON.toJSON(map);
+		return o;
+	}
+
 	@RequestMapping("/home/arrange/{patientid}")
 	@ResponseBody
 	public Object arrange(@PathVariable("patientid") Integer patientid) {

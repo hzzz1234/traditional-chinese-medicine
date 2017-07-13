@@ -30,5 +30,5 @@ public interface DbxzUserService {
 
 	int updateDeletePrescriptionById(Integer prescriptionid);
 
-	long selectMaxId();
+	Long selectMaxId();
 }

@@ -10,6 +10,7 @@
     <result column="contact" property="contact" jdbcType="VARCHAR" />
     <result column="deleted" property="deleted" jdbcType="TINYINT" />
     <result column="DataChange_LastTime" property="datachangeLasttime" jdbcType="TIMESTAMP" />
+    <result column="duration" property="duration" jdbcType="INTEGER" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -70,7 +71,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    id, name, age, sex, symptom, contact, deleted, DataChange_LastTime
+    id, name, age,duration, sex, symptom, contact, deleted, DataChange_LastTime
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.hzzz.tcm.domain.model.DbxzpatientExample" >
     select
@@ -103,10 +104,10 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.hzzz.tcm.domain.model.Dbxzpatient" >
-    insert into dbxzpatient (id, name, age, 
+    insert into dbxzpatient (id, name, age, duration
       sex, symptom, contact, 
       deleted, DataChange_LastTime)
-    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{age,jdbcType=INTEGER}, 
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{age,jdbcType=INTEGER}, #{duration,jdbcType=INTEGER}
       #{sex,jdbcType=TINYINT}, #{symptom,jdbcType=VARCHAR}, #{contact,jdbcType=VARCHAR}, 
       #{deleted,jdbcType=TINYINT}, #{datachangeLasttime,jdbcType=TIMESTAMP})
   </insert>
@@ -121,6 +122,9 @@
       </if>
       <if test="age != null" >
         age,
+      </if>
+      <if test="duration != null" >
+        duration,
       </if>
       <if test="sex != null" >
         sex,
@@ -147,6 +151,9 @@
       </if>
       <if test="age != null" >
         #{age,jdbcType=INTEGER},
+      </if>
+      <if test="duration != null" >
+        #{duration,jdbcType=INTEGER},
       </if>
       <if test="sex != null" >
         #{sex,jdbcType=TINYINT},
@@ -183,6 +190,9 @@
       <if test="record.age != null" >
         age = #{record.age,jdbcType=INTEGER},
       </if>
+      <if test="record.duration != null" >
+        age = #{record.duration,jdbcType=INTEGER},
+      </if>
       <if test="record.sex != null" >
         sex = #{record.sex,jdbcType=TINYINT},
       </if>
@@ -208,6 +218,7 @@
     set id = #{record.id,jdbcType=INTEGER},
       name = #{record.name,jdbcType=VARCHAR},
       age = #{record.age,jdbcType=INTEGER},
+      duration = #{duration,jdbcType=INTEGER},
       sex = #{record.sex,jdbcType=TINYINT},
       symptom = #{record.symptom,jdbcType=VARCHAR},
       contact = #{record.contact,jdbcType=VARCHAR},
@@ -225,6 +236,9 @@
       </if>
       <if test="age != null" >
         age = #{age,jdbcType=INTEGER},
+      </if>
+      <if test="duration != null" >
+        duration = #{duration,jdbcType=INTEGER},
       </if>
       <if test="sex != null" >
         sex = #{sex,jdbcType=TINYINT},
@@ -248,6 +262,7 @@
     update dbxzpatient
     set name = #{name,jdbcType=VARCHAR},
       age = #{age,jdbcType=INTEGER},
+      duration = #{duration,jdbcType=INTEGER},
       sex = #{sex,jdbcType=TINYINT},
       symptom = #{symptom,jdbcType=VARCHAR},
       contact = #{contact,jdbcType=VARCHAR},

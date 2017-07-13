@@ -14,14 +14,17 @@
   <profiles>
 		<profile>
 			<id>dev</id>
-			<activation>
-				<activeByDefault>true</activeByDefault>
-			</activation>
+			<!--<activation>-->
+				<!--<activeByDefault>true</activeByDefault>-->
+			<!--</activation>-->
 			<properties>
 				<package.environment>dev</package.environment>
 			</properties>
 		</profile>
 		<profile>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
 			<id>prod</id>
 			<properties>
 				<package.environment>prod</package.environment>

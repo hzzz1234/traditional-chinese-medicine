@@ -66,9 +66,10 @@
 	                    <div class="col-md-8">
 	                    	<input ng-change="arrangetextchange($event)" type="text" ng-model="patientNo" class="form-control" style="min-width:60%"  ng-pattern="/^[1-9][0-9]*/" placeholder="请输入病历号" name="patientNo" required>
 	                    </div>
-	                    <div class="col-md-4">
+	                    <div class="col-md-2">
 	                      <button class="btn btn-primary form-control" ng-disabled="arr_form.$invalid" ng-click="arrange(patientNo)">排  队</button>
 	                    </div>
+
 	                 </form>
                    </div>
                    <div  style=" overflow-y:scroll;max-height:75%;min-height:75%;">
@@ -83,7 +84,7 @@
                 </thead>
                 <tbody>
                 <tr ng-repeat="w in waitlist">
-					<td>{{ $index+1 }}</td>
+					<td>{{ w.seq }}</td>
 					<td>{{ w.patientid }}</td>
 					<td>{{ w.patientname }}</td>
 					<td>{{ w.recordcount }}</td>
@@ -94,6 +95,8 @@
                     <a href="javascript:void(0);" title="置顶"><i class="icon-double-angle-up" ng-click="upup($index)"></i></a>&nbsp;&nbsp;
                     <a href="javascript:void(0);" title="置底"><i class="icon-double-angle-down" ng-click="downdown($index)"></i></a>&nbsp;&nbsp;
                     <a href="javascript:void(0);" title="删除"><i class="glyphicon glyphicon-trash" ng-click="delete1($index)"></i></a>&nbsp;&nbsp;
+
+
                   </td>
                 </tr>
                 </tbody>
@@ -105,9 +108,9 @@
                     <div class="col-md-4">
                       <button class="btn btn-primary form-control" ng-disabled="waitlist.length <= 0" ng-click="rescue()">就  诊</button>
                     </div>
-                    <div class="col-md-4">
-                      
-                    </div>
+                        <div class="col-md-4">
+                            <button class="btn btn-primary form-control" ng-click="reset()">重  置</button>
+                        </div>
                     <div class="col-md-4">
                       <button class="btn btn-primary form-control" ng-click="clean()">清  空</button>
                     </div>

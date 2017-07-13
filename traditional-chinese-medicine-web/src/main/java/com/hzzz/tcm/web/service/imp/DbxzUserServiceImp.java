@@ -28,7 +28,7 @@ public class DbxzUserServiceImp implements DbxzUserService {
 	DbxzpatjpreMapper dbxzpatjpreMapper;
 
 	public List<Dbxzpatient> selectDbxzpatients(String condition, Page page) {
-		return dbxzpatientMapper.selectDbxzpatients(condition, page.getCurPage(), 1l);
+		return dbxzpatientMapper.selectDbxzpatients(condition, page.getCurPage(), page.getPageSize());
 	}
 
 	public DbxzPatientSpec selectDbxzpatientSpecById(Integer id) {
@@ -90,7 +90,7 @@ public class DbxzUserServiceImp implements DbxzUserService {
 		return dbxzprescriptionMapper.updateDeletePrescriptionById(prescriptionid);
 	}
 
-	public long selectMaxId() {
+	public Long selectMaxId() {
 		// TODO Auto-generated method stub
 		return dbxzpatientMapper.selectMaxId();
 	}

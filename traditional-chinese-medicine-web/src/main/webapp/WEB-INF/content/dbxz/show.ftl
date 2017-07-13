@@ -31,14 +31,12 @@
 				<div class="panel-body">
 					<table class="table">
 						<thead class="showfont">
-							<th style="font-size:50px;"><序号</th>
-							<th style="font-size:50px;">病历号</th>
+							<th style="font-size:50px;">序号</th>
 							<th style="font-size:50px;">姓名</th>
 						</thead>
 						<tbody class="showfont">
 							<tr ng-repeat="r in dbxzRecordsTop10">
-								<td style="color:red;font-size:100px;">{{ $index+1 }}</td>
-								<td style="color:red;font-size:100px;">{{ r.patientid }}</td>
+								<td style="color:red;font-size:100px;">{{ r.seq }}</td>
 								<td style="color:red;font-size:100px;">{{ r.patientname }}</td>
 							</tr></span>
 						</tbody>
@@ -55,13 +53,11 @@
 					<table class="table">
 						<thead class="showfont">
 							<th>序号</th>
-							<th>病历号</th>
 							<th>姓名</th>
 						</thead>
 						<tbody class="showfont">
 							<tr ng-repeat="r in dbxzRecords11To30">
 								<td>{{ $index+6 }}</th>
-								<td>{{ r.patientid }}</th>
 								<td>{{ r.patientname }}</th>
 							</tr>
 						</tbody>
@@ -78,13 +74,11 @@
 			<table class="table">
 				<thead class="showfont">
 					<th>序号</th>
-					<th>病历号</th>
 					<th>姓名</th>
 				</thead>
 				<tbody class="showfont">
 					<tr ng-repeat="r in dbxzRecordsAfter31">
 								<td>{{ $index+16 }}</th>
-								<td>{{ r.patientid }}</th>
 								<td>{{ r.patientname }}</th>
 							</tr>
 				</tbody>

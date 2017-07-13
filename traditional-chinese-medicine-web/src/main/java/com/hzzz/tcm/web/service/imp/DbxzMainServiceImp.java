@@ -3,6 +3,7 @@ package com.hzzz.tcm.web.service.imp;
 import java.util.Date;
 import java.util.List;
 
+import com.hzzz.tcm.persistence.dao.SeqMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,13 +21,18 @@ public class DbxzMainServiceImp implements DbxzMainService {
 	DbxztreatrecordMapper dbxztreatrecordMapper;
 	@Autowired
 	DbxzpatientMapper dbxzpatientMapper;
+	@Autowired
+	SeqMapper seqMapper;
 
 	public int insertArrange(int patientid) {
+		Integer seq = seqMapper.selectSeq();
+		seqMapper.replaceSeq(seq+1);
 		Dbxztreatrecord record = new Dbxztreatrecord();
 		record.setPatientid(patientid);
 		record.setStatus(Byte.valueOf("0"));
 		record.setStarttime(new Date());
 		record.setDatachangeLasttime(new Date());
+		record.setSeq(seq+1);
 		return dbxztreatrecordMapper.insert1(record);
 	}
 
@@ -61,6 +67,10 @@ public class DbxzMainServiceImp implements DbxzMainService {
 	public List<DbxzRecord> selectRescueRecords() {
 		// TODO Auto-generated method stub
 		return dbxztreatrecordMapper.selectRescueRecords();
+	}
+
+	public int reset() {
+		return seqMapper.replaceSeq(0);
 	}
 
 	public int updatedelete(int recordid) {

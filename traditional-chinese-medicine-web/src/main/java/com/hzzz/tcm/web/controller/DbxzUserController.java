@@ -34,7 +34,10 @@ public class DbxzUserController extends BaseController {
 		Long count = dbxzUserService.selectDbxzpatientsCount(dbUserVo.getCondition());
 		List<Dbxzpatient> ps = dbxzUserService.selectDbxzpatients(dbUserVo.getCondition(), page);
 		List<Dbxzprescription> pres = dbxzUserService.selectDbxzprescriptions();
-		long maxId = dbxzUserService.selectMaxId();
+		Long maxId = dbxzUserService.selectMaxId();
+		if(maxId == null){
+			maxId = 1l;
+		}
 		page.setItemCount(count);
 		dbUserVo.setDbxzPatients(ps);
 		dbUserVo.setDbxzprescriptions(pres);
@@ -105,6 +108,7 @@ public class DbxzUserController extends BaseController {
 		dbxzpatient.setId(dbxzPatientVo.getId());
 		dbxzpatient.setName(dbxzPatientVo.getName());
 		dbxzpatient.setAge(dbxzPatientVo.getAge());
+		dbxzpatient.setDuration(dbxzPatientVo.getDuration());
 		dbxzpatient.setSex((byte) dbxzPatientVo.getSex());
 		dbxzpatient.setContact(dbxzPatientVo.getContact());
 		dbxzpatient.setSymptom(dbxzPatientVo.getSymptom());
@@ -142,6 +146,7 @@ public class DbxzUserController extends BaseController {
 		dbxzpatient.setId(dbxzPatientVo.getId());
 		dbxzpatient.setName(dbxzPatientVo.getName());
 		dbxzpatient.setAge(dbxzPatientVo.getAge());
+		dbxzpatient.setDuration(dbxzPatientVo.getDuration());
 		dbxzpatient.setSex((byte) dbxzPatientVo.getSex());
 		dbxzpatient.setContact(dbxzPatientVo.getContact());
 		dbxzpatient.setSymptom(dbxzPatientVo.getSymptom());

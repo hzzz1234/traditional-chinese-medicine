@@ -9,7 +9,7 @@
 		<div class="panel panel-default" >
 			<div class="panel-heading">
 	              	查询面板
-	            </div>
+			</div>
 	         <div class="panel-body">
 	              <div class="row">
 	                <div class="col-md-8">
@@ -26,12 +26,13 @@
 	                </div>
 	              </div>
 	              <div>
-	              <div>
+	              <div style="overflow-y:scroll;max-height:35%;">
 	                <table class="table">
 	                  <thead>
 	                    <th>病历号</th>
 	                    <th>姓名</th>
 	                    <th>年龄</th>
+	                    <th>敷药年限</th>
 	                    <th>性别</th>
 	                    <th>联系方式</th>
 	                    <th>操作</th>
@@ -41,12 +42,14 @@
                           <td>{{ p.id }}</td>
                           <td>{{ p.name }}</td>
                           <td>{{ p.age }}</td>
+                          <td>{{ p.duration }}</td>
                           <td>{{ getSex(p.sex) }}</td>
                           <td>{{ p.contact }}</td>
                           <td><a href="javascript:void(0);" ng-click="getPatient(p.id)" class="btn btn-link">详情</a>&nbsp;&nbsp;<a href="javascript:void(0);" ng-click="deletePatient(p.id)"><i class="glyphicon glyphicon-trash"></i></a></td>
                         </tr>
                       </tbody>
 	                </table>
+
 	            </div>
 	            </div>
 		</div>
@@ -74,6 +77,8 @@
 										<input type="text" class="form-control" id="name" name="name" ng-model="selectedPatient.dbxzpatient.name" required>
 										<label for="age">年龄</label>
 										<input type="number"  class="form-control" id="age" name="age" ng-model="selectedPatient.dbxzpatient.age" required>
+                                        <label for="age">敷药年限</label>
+                                        <input type="number"  class="form-control" id="duration" name="duration" ng-model="selectedPatient.dbxzpatient.duration" required>
 										<label for="sex">性别</label>&nbsp;&nbsp;
 										<input type="radio" name="sex" ng-model="selectedPatient.dbxzpatient.sex" ng-value="0">男
 										<input type="radio" name="sex" ng-model="selectedPatient.dbxzpatient.sex" ng-value="1">女
@@ -131,13 +136,15 @@
 								<fieldset>
 								<legend>病人信息</legend>
 								<div class="form-group">
-									<label for="id">病历号<font style="color:red;">(推荐:{{ maxId }})</font></label>
+                                        <label for="id">病历号<font style="color:red;">(推荐:{{ maxId }})</font></label>
 									<input type="number" class="form-control" id="id" name="id" ng-model="newPatient.id" required >
 									<label for="name">姓名</label>
 									<input type="text" class="form-control" id="name" name="name" ng-model="newPatient.name" required>
 									<label for="age">年龄</label>
 									<input type="number"  class="form-control" id="age" name="age" ng-model="newPatient.age" required>
-									<label for="sex">性别</label>&nbsp;&nbsp;
+                                    <label for="age">敷药年限</label>
+                                    <input type="number"  class="form-control" id="duration" name="duration" ng-model="newPatient.duration" required>
+                                    <label for="sex">性别</label>&nbsp;&nbsp;
 									<input type="radio" name="sex" ng-model="newPatient.sex" ng-value="0" checked>男
 									<input type="radio" name="sex" ng-model="newPatient.sex" ng-value="1">女
 									<br/>
@@ -218,6 +225,7 @@
 						id:${p.id},
 						name:'${p.name!''}',
 						age:${p.age},
+                        duration:${p.duration!0},
 						sex:${p.sex},
 						symptom:'${p.symptom!''}',
 						contact:'${p.contact!''}'

@@ -8,6 +8,7 @@
     <result column="startTime" property="starttime" jdbcType="TIMESTAMP" />
     <result column="endTime" property="endtime" jdbcType="TIMESTAMP" />
     <result column="DataChange_LastTime" property="datachangeLasttime" jdbcType="TIMESTAMP" />
+
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >

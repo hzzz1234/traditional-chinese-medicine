@@ -8,6 +8,15 @@ public class DbxzPatientVo {
 	private String contact;
 	private String symptom;
 	private String prescriptionids;
+	private int duration;
+
+	public int getDuration() {
+		return duration;
+	}
+
+	public void setDuration(int duration) {
+		this.duration = duration;
+	}
 
 	public int getId() {
 		return id;

@@ -22,4 +22,6 @@ public interface DbxzMainService {
 
 	List<DbxzRecord> selectRescueRecords();
 
+	int reset();
+
 }

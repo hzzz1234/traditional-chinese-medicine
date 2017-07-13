@@ -102,6 +102,18 @@ app.controller('homeController', function($scope, $timeout, $http) {
 		}
 
 	};
+	$scope.reset = function() {
+		$http({
+			method : 'POST',
+			url : ctx + '/home/reset'
+		}).success(function(response) {
+			if (response.flag == 'ok') {
+				alert("重置成功");
+			} else {
+				alert("重置失败"+response.result);
+			}
+		});
+	};
 	$scope.arrange = function(patientid) {
 		$http({
 			method : 'POST',

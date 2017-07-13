@@ -28,9 +28,11 @@ CREATE TABLE `dbxzpatient` (
   `contact` varchar(50) DEFAULT NULL COMMENT '联系方式',
   `deleted` tinyint(4) NOT NULL DEFAULT '0' COMMENT '是否删除',
   `DataChange_LastTime` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP COMMENT '最后更新时间',
+  `seq` int(11) NOT NULL DEFAULT '0' COMMENT '序号',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
+INSERT INTO `seq` VALUES (1, 0, '2016-6-16 21:22:18');
 -- ----------------------------
 -- Table structure for dbxzpatjpre
 -- ----------------------------

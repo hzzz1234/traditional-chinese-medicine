@@ -42,10 +42,10 @@ public interface DbxzpatientMapper {
 	@Update("update dbxzpatient set deleted=1 where id=#{id}")
 	int updateDeleted(@Param("id") Integer id);
 
-	@Insert("replace into dbxzpatient(id,name,age,sex,symptom,contact,deleted) " + "values(#{dbxzpatient.id},#{dbxzpatient.name},#{dbxzpatient.age},"
-			+ "#{dbxzpatient.sex},#{dbxzpatient.symptom},#{dbxzpatient.contact},0)")
+	@Insert("replace into dbxzpatient(id,name,age,sex,symptom,contact,duration,deleted) " + "values(#{dbxzpatient.id},#{dbxzpatient.name},#{dbxzpatient.age},"
+			+ "#{dbxzpatient.sex},#{dbxzpatient.symptom},#{dbxzpatient.contact},#{dbxzpatient.duration},0)")
 	int insertPatient(@Param("dbxzpatient") Dbxzpatient dbxzpatient);
 
 	@Select("select max(id)+1 from dbxzpatient")
-	long selectMaxId();
+	Long selectMaxId();
 }
